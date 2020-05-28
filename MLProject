@@ -5,6 +5,6 @@ conda_env: conda.yaml
 entry_points:
   main:
     parameters:
-      convSize: {type: tuple, default: (3,3)}
+      convSize: {type: int, default: 3}
       epochs: {type: int, default: 1000}
     command: "python train_keras.py {convSize} {epochs}"
