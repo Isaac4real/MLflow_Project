@@ -29,7 +29,7 @@ print(x_train.shape)
 mlflow.tensorflow.autolog()
 
 def mlflow_run(params, run_name="Tracking Experiment: TensorFlow - CNN "):
-  with mlflow.start_run(run_name=r_name) as run:
+  with mlflow.start_run(run_name=run_name) as run:
     # get current run and experiment id
     runID = run.info.run_uuid
     experimentID = run.info.experiment_id
