@@ -5,6 +5,6 @@ conda_env: conda.yaml
 entry_points:
   main:
     parameters:
-      convSize: {type: int, default: 3}
+      convSize: {type: tuple, default: (3,3)}
       epochs: {type: int, default: 1000}
     command: "python Train_TensorFlow.py {convSize} {epochs}"

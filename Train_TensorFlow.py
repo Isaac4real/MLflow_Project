@@ -39,9 +39,9 @@ def mlflow_run(params, run_name="Tracking Experiment: TensorFlow - CNN "):
     print("number of classes:", K)
     # Build the model using the functional API
     i = Input(shape=x_train[0].shape)
-    x = Conv2D(32, (params['convSize'],params['convSize']), strides=2, activation='relu')(i)
-    x = Conv2D(64, (params['convSize'],params['convSize']), strides=2, activation='relu')(x)
-    x = Conv2D(128, (params['convSize'],params['convSize']), strides=2, activation='relu')(x)
+    x = Conv2D(32, params['convSize'], strides=2, activation='relu')(i)
+    x = Conv2D(64, params['convSize'], strides=2, activation='relu')(x)
+    x = Conv2D(128, params['convSize'], strides=2, activation='relu')(x)
     x = Flatten()(x)
     x = Dropout(0.2)(x)
     x = Dense(512, activation='relu')(x)
@@ -69,7 +69,7 @@ if __name__ == '__main__':
    # suppress any deprecated warnings
    warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-   convSize = int(sys.argv[1]) if len(sys.argv) > 1 else 3
+   convSize = int(sys.argv[1]) if len(sys.argv) > 1 else (3,3)
    epochs = int(sys.argv[2]) if len(sys.argv) > 2 else 10
    params = {'epochs': epochs,
             'convSize': convSize}
