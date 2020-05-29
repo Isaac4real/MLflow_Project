@@ -58,9 +58,9 @@ def mlflow_run(params, run_name="Tracking Experiment: TensorFlow - CNN "):
     r = model.fit(x_train, y_train, validation_data=(x_test, y_test), epochs=params['epochs'])
     
     # Plot accuracy per iteration
-    plt.plot(r.history['accuracy'], label='acc')
+    '''plt.plot(r.history['accuracy'], label='acc')
     plt.plot(r.history['val_accuracy'], label='val_acc')
-    plt.legend()
+    plt.legend()'''
       
   return (experimentID, runID)
 
