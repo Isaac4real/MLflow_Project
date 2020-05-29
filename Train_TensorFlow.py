@@ -69,10 +69,10 @@ if __name__ == '__main__':
    # suppress any deprecated warnings
    warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-   convSize = int(sys.argv[1]) if len(sys.argv) > 1 else (3,3)
+   convSize = int(sys.argv[1]) if len(sys.argv) > 1 else 3
    epochs = int(sys.argv[2]) if len(sys.argv) > 2 else 10
    params = {'epochs': epochs,
-            'convSize': convSize}
+            'convSize': (convSize,convSize)}
    (exp_id, run_id) = mlflow_run(params)
 
    print(f"Finished Experiment id={exp_id} and run id = {run_id}")
